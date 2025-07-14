@@ -15,7 +15,7 @@ public class ScrammerSpringApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		var consumoApi = new ConsumoApi();
-		var json = consumoApi.obterDados("https://omdbapi.com/?t=gilmore+girls&Season=1&apikey=6585022c");
+		var json = consumoApi.obterDados("@JsonAlias");
 		System.out.println(json);
 
 
