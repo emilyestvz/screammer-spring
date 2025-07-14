@@ -1,5 +1,6 @@
 package br.com.alura.scrammer_spring;
 
+import br.com.alura.scrammer_spring.service.ConsumoApi;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,6 +14,10 @@ public class ScrammerSpringApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("Scrammer Spring Application is running! ✨");
+		var consumoApi = new ConsumoApi();
+		var json = consumoApi.obterDados("https://omdbapi.com/?t=gilmore+girls&Season=1&apikey=6585022c");
+		System.out.println(json);
+
+
 	}
 }
