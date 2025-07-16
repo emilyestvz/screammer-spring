@@ -1,6 +1,7 @@
 package br.com.alura.scrammer_spring;
 
 import br.com.alura.scrammer_spring.model.DadosSerie;
+import br.com.alura.scrammer_spring.model.DadosEpisodio;
 import br.com.alura.scrammer_spring.service.ConsumoApi;
 import br.com.alura.scrammer_spring.service.ConverteDados;
 import org.springframework.boot.CommandLineRunner;
@@ -22,8 +23,16 @@ public class ScrammerSpringApplication implements CommandLineRunner {
 		System.out.println(json);
 
 		ConverteDados conversor = new ConverteDados();
+
+		// Consumindo API e convertendo JSON para objeto Java em DadosSerie
 		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
 		System.out.println(dados);
+
+		// Consumindo API atualizada e convertendo JSON para objeto Java em Episodios
+		json = consumoApi.obterDados("https://omdbapi.com/?t=gilmore+girls&season=1&episode=2&apikey=6585022c");
+		DadosEpisodio dadosEpisodio = conversor.obterDados(json, DadosEpisodio.class);
+		System.out.println(dadosEpisodio);
+
 
 	}
 }
