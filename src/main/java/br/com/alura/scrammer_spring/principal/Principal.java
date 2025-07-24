@@ -1,5 +1,6 @@
 package br.com.alura.scrammer_spring.principal;
 
+import br.com.alura.scrammer_spring.model.DadosEpisodio;
 import br.com.alura.scrammer_spring.model.DadosSerie;
 import br.com.alura.scrammer_spring.model.DadosTemporada;
 import br.com.alura.scrammer_spring.service.ConsumoApi;
@@ -44,7 +45,18 @@ public class Principal {
 
 		temporadas.forEach(System.out::println);
 
+//        for(int i = 0; i < dados.totalTemporadas(); i++) {
+//            List<DadosEpisodio> episodiosTemporada = temporadas.get(i).episodios();
+//
+//            for(int j = 0; j < episodiosTemporada.size(); j++) {
+//                DadosEpisodio episodio = episodiosTemporada.get(j);
+//                System.out.println("Temporada " + (i + 1) + ", Episódio " + (j + 1) + ": " + episodio.titulo());
+//            }
+//        }
 
+        temporadas.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
+        temporadas.forEach(System.out::println);
     }
 }
+
 
